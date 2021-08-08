@@ -1,7 +1,9 @@
 'use strict';
+
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Posts extends Model {
     /**
@@ -14,8 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'user',
       });
+      Posts.hasMany(models.PostActions, {
+        foreignKey: 'postId',
+      });
     }
-  };
+  }
   Posts.init({
     userId: DataTypes.INTEGER,
     quoteId: DataTypes.INTEGER,
@@ -24,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     video: DataTypes.STRING,
     type: DataTypes.INTEGER,
     olnyBoost: DataTypes.BOOLEAN,
-    isDeleted: DataTypes.BOOLEAN
+    isDeleted: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Posts',

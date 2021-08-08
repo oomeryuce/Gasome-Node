@@ -1,7 +1,9 @@
 'use strict';
+
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Users extends Model {
     /**
@@ -11,15 +13,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Users.hasOne(models.UserInfo, {
-        foreignKey:'userId',
+        foreignKey: 'userId',
         as: 'userInfo',
       });
       Users.hasOne(models.Posts, {
-        foreignKey:'userId',
+        foreignKey: 'userId',
         as: 'user',
       });
     }
-  };
+  }
   Users.init({
     name: DataTypes.STRING,
     userName: DataTypes.STRING,
@@ -27,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     type: DataTypes.INTEGER,
     verified: DataTypes.BOOLEAN,
-    emailVerifiedAt: DataTypes.DATE
+    emailVerifiedAt: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Users',
@@ -35,16 +37,16 @@ module.exports = (sequelize, DataTypes) => {
       beforeCreate: (user) => {
         const salt = bcrypt.genSaltSync();
         user.password = bcrypt.hashSync(user.password, salt);
-      }
+      },
     },
     instanceMethods: {
-      validPassword: function(password) {
+      validPassword(password) {
         return bcrypt.compareSync(password, this.password);
-      }
+      },
     },
-    /*defaultScope: {
+    /* defaultScope: {
       attributes: { exclude: ['password'] },
-    }*/
+    } */
   });
   return Users;
 };

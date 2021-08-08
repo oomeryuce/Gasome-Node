@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('UserInfos', {
@@ -6,7 +7,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -14,58 +15,58 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       bio: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       avatar: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       cover: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       language: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       device: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       os: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       online: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       level: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       gender: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       birthday: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       latitude: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       longitude: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       weblink: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       twitch: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         defaultValue: Sequelize.fn('NOW'),
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         defaultValue: Sequelize.fn('NOW'),
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('UserInfos');
-  }
+  },
 };

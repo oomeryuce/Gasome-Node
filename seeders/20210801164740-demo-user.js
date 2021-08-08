@@ -18,7 +18,7 @@ module.exports = {
       email: 'info@gasome.com',
       type: 1,
       verified: true,
-      emailVerifiedAt: null
+      emailVerifiedAt: null,
     }], {});
     await queryInterface.bulkInsert('UserInfos', [{
       userId: 1,
@@ -34,8 +34,23 @@ module.exports = {
       birthday: null,
       latitude: null,
       longitude: null,
-      weblink: "gasome.com",
-      twitch: null
+      weblink: 'gasome.com',
+      twitch: null,
+    }], {});
+    await queryInterface.bulkInsert('Posts', [{
+      userId: 1,
+      quoteId: null,
+      parentId: null,
+      text: 'Demo Post',
+      video: null,
+      type: 1,
+      olnyBoost: false,
+      isDeleted: false,
+    }], {});
+    await queryInterface.bulkInsert('PostActions', [{
+      userId: 1,
+      postId: 1,
+      action: 1,
     }], {});
   },
 
@@ -46,5 +61,5 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
