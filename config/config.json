@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "gasomeadmin",
+    "password": "Bjk!190376*",
+    "database": "gasome",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "gasomeadmin",
+    "password": "Bjk!190376*",
+    "database": "gasome",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "gasomeadmin",
+    "password": "Bjk!190376*",
+    "database": "gasome",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
